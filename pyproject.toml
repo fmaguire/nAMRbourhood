@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "nAMRbourhood"
+version = "0.1.0"
+description = "Tool to explore the genomic context of focal genes across genomes"
+authors = ["Finlay Maguire <finlay.maguire@dal.ca>",
+           "Alex Manuele <al366886@dal.ca>"]
+license = "GPLv3"
+
+[tool.poetry.dependencies]
+python = ">=3.7,<3.11"
+biopython = "^1.79"
+click = "^8.0.3"
+scipy = "^1.7.3"
+
+[tool.poetry.dev-dependencies]
+pylint-mccabe = "^0.1.3"
+pylint-tta = "^0.0.4-alpha.0"
+mypy = "^0.930"
+
+[tool.poetry.scripts]
+nAMRbourhood = 'nAMRbourhood:cli.main'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
