@@ -16,8 +16,8 @@ def get_proteins_from_gbk(gbk_fp, faa_fp):
                 if feature.type == 'CDS' and 'pseudo' not in feature.qualifiers:
                     proteins.append(\
                             SeqRecord(
-                                Seq(record.qualifiers['translation'][0]),
-                                id=record.qualifiers['locus_tag'][0],
-                                name=record.name))
-    with open(faa_fp) as out_fh:
+                                Seq(feature.qualifiers['translation'][0]),
+                                id=feature.qualifiers['locus_tag'][0],
+                                description=feature.qualifiers['product'][0]))
+    with open(faa_fp, 'w') as out_fh:
         SeqIO.write(proteins, out_fh, "fasta-2line")
